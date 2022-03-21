@@ -103,6 +103,27 @@ connection.close();
 - 查询语句中返回点、边、路径后在 Result 中应该如何获得？
 
 将 `ResultSet` 转为 `NebulaResultSet`，然后调用 `getNode`、`getEdge`、`getPath`；对于列表、集合、映射也是如此。
+## 4. Tips
+```java
+       // 首先要导入数据库驱动jar包、直接复制到文件那里，然后加入到路径
+	// 1. 注册驱动
+	Class.forName("com.mysql.jdbc.Driver");java反射机制
+	//2. 创建一个连接对象
+	Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb","root","password");
+	//3. 创建一个sql语句的发送命令对象
+	Statement stmt = conn.createStatement();
+	// 4. 执行sql,拿到查询的结果集对象
+	ResultSet rs = stmt.executeQuery("select * from stu");
+	//5. 输出结果集的数据
+	while(rs.next()){
+		system.out.println(rs.getInt("id")+":"+rs.getString("name"));
+	}
+	//6. 关闭连接，命令对象以及结果集。
+	rs.close();
+	stmt.close();
+	conn.close();
+```
+在加载某一 `Driver` 类时，它应该创建自己的实例并向 `DriverManager` 注册该实例,`DriverManger`将要注册的驱动程序信息封装到了`DriverInfo`中，然后放进了一个`List`中。在后边获得连接时会再用到。
 
 # English Version
 
