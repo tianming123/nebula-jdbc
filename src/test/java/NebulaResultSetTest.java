@@ -16,6 +16,7 @@ import org.slf4j.LoggerFactory;
 import sun.rmi.runtime.Log;
 
 
+import java.net.UnknownHostException;
 import java.sql.*;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
@@ -37,7 +38,7 @@ public class NebulaResultSetTest {
     Statement statement;
 
     @BeforeAll
-    public void getConnectionAndStatement() throws SQLException {
+    public void getConnectionAndStatement() throws SQLException, UnknownHostException {
         driver = new NebulaDriver(RunMeBeforeTest.IP + ":" + RunMeBeforeTest.PORT);
         connection = DriverManager.getConnection(RunMeBeforeTest.URL, RunMeBeforeTest.USERNAME, RunMeBeforeTest.PASSWORD);
         statement = connection.createStatement();

@@ -9,6 +9,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 
+import java.net.UnknownHostException;
 import java.sql.*;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -26,7 +27,7 @@ public class NebulaStatementTest {
     Statement statement;
 
     @BeforeAll
-    public void getConnectionAndStatement() throws SQLException {
+    public void getConnectionAndStatement() throws SQLException, UnknownHostException {
         driver = new NebulaDriver();
         connection = DriverManager.getConnection(RunMeBeforeTest.URL, RunMeBeforeTest.USERNAME, RunMeBeforeTest.PASSWORD);
         statement = connection.createStatement();

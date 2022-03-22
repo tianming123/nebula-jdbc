@@ -7,6 +7,7 @@ import com.vesoft.nebula.client.graph.NebulaPoolConfig;
 import com.vesoft.nebula.client.graph.data.HostAddress;
 import com.vesoft.nebula.client.graph.data.ResultSet;
 import com.vesoft.nebula.client.graph.exception.AuthFailedException;
+import com.vesoft.nebula.client.graph.exception.ClientServerIncompatibleException;
 import com.vesoft.nebula.client.graph.exception.IOErrorException;
 import com.vesoft.nebula.client.graph.exception.NotValidConnectionException;
 import com.vesoft.nebula.client.graph.net.NebulaPool;
@@ -26,7 +27,7 @@ import java.util.Properties;
 public class RunMeBeforeTest {
 
     // you can modify driverProperties below according your config
-    public static final String IP = "192.168.69.234";
+    public static final String IP = "124.222.130.92";
     public static final int PORT = 9669;
 
     public static final String USERNAME = "root";
@@ -43,7 +44,7 @@ public class RunMeBeforeTest {
     private final Logger log = LoggerFactory.getLogger(this.getClass());
 
     @Test
-    public void createTestGraphSpace() throws SQLException, IOErrorException, AuthFailedException, NotValidConnectionException, UnknownHostException, InterruptedException {
+    public void createTestGraphSpace() throws SQLException, IOErrorException, AuthFailedException, NotValidConnectionException, UnknownHostException, InterruptedException, ClientServerIncompatibleException {
 
         NebulaPoolConfig nebulaPoolConfig = new NebulaPoolConfig();
         List<HostAddress> addresses = Arrays.asList(new HostAddress(IP, PORT));

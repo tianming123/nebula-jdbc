@@ -10,6 +10,7 @@ import com.vesoft.nebula.jdbc.impl.NebulaDriver;
 import com.vesoft.nebula.jdbc.impl.NebulaResultSet;
 import org.junit.jupiter.api.Test;
 
+import java.net.UnknownHostException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Properties;
@@ -24,10 +25,10 @@ import static org.junit.jupiter.api.Assertions.*;
 public class NebulaDriverTest {
 
     @Test
-    public void getDefaultDriverTest() throws SQLException {
+    public void getDefaultDriverTest() throws SQLException, UnknownHostException {
 
         Properties defaultPoolProperties = new Properties();
-        String defaultIp = "127.0.0.1";
+        String defaultIp = "192.168.66.116";
         int defaultPort = 9669;
         ArrayList<HostAddress> addressList = new ArrayList<>();
         addressList.add(new HostAddress(defaultIp, defaultPort));
@@ -64,7 +65,7 @@ public class NebulaDriverTest {
 
 
     @Test
-    public void getCustomizedDriverTest() throws SQLException {
+    public void getCustomizedDriverTest() throws SQLException, UnknownHostException {
 
         Properties poolProperties = new Properties();
         ArrayList<HostAddress> addressList = new ArrayList<>();
@@ -108,7 +109,7 @@ public class NebulaDriverTest {
 
 
     @Test
-    public void getCustomizedUrlDriverTest() throws SQLException {
+    public void getCustomizedUrlDriverTest() throws SQLException, UnknownHostException {
         NebulaDriver customizedUrlDriver = new NebulaDriver(RunMeBeforeTest.IP + ":" + RunMeBeforeTest.PORT);
 
         NebulaPoolConfig nebulaPoolConfig = customizedUrlDriver.getNebulaPoolConfig();
