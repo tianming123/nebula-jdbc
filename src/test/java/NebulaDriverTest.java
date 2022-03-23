@@ -1,7 +1,3 @@
-/**
- * @author Flash
- * @Email flash@m.scnu.edu.cn
- */
 
 import com.vesoft.nebula.client.graph.NebulaPoolConfig;
 import com.vesoft.nebula.client.graph.data.HostAddress;

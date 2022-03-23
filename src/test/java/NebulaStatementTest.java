@@ -1,7 +1,3 @@
-/**
- * @author Flash
- * @Email flash@m.scnu.edu.cn
- */
 
 import com.vesoft.nebula.jdbc.impl.NebulaDriver;
 import org.junit.jupiter.api.AfterAll;
