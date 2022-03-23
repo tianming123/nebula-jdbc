@@ -24,10 +24,11 @@ public class NebulaDriverTest {
     public void getDefaultDriverTest() throws SQLException, UnknownHostException {
 
         Properties defaultPoolProperties = new Properties();
-        String defaultIp = "192.168.66.116";
+        String defaultIp = "127.0.0.1";
         int defaultPort = 9669;
         ArrayList<HostAddress> addressList = new ArrayList<>();
         addressList.add(new HostAddress(defaultIp, defaultPort));
+
 
         defaultPoolProperties.put("addressList", addressList);
         defaultPoolProperties.put("minConnsSize", 0);
@@ -66,7 +67,7 @@ public class NebulaDriverTest {
         Properties poolProperties = new Properties();
         ArrayList<HostAddress> addressList = new ArrayList<>();
         addressList.add(new HostAddress(RunMeBeforeTest.IP, RunMeBeforeTest.PORT));
-        addressList.add(new HostAddress("127.0.0.1", 9670));
+        //addressList.add(new HostAddress("127.0.0.1", 9670));
 
         poolProperties.put("addressList", addressList);
         poolProperties.put("minConnsSize", 2);
