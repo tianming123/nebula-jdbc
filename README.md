@@ -124,7 +124,22 @@ connection.close();
 	conn.close();
 ```
 在加载某一 `Driver` 类时，它应该创建自己的实例并向 `DriverManager` 注册该实例,`DriverManger`将要注册的驱动程序信息封装到了`DriverInfo`中，然后放进了一个`List`中。在后边获得连接时会再用到。
+## 5. 性能测试
+在10w条插入测试结果中
 
+1.使用statement耗时142秒；
+
+2.使用PreparedStatement耗时56秒；
+
+3.使用PreparedStatement + 批处理耗时：
+
+a.50条插入一次，耗时5秒；
+
+b.100条插入一次，耗时2秒；
+
+c.1000条以上插入一次，耗时1秒；
+
+通过以上可以得出结论，在使用jdbc大批量插入数据时，明显使用第三种方式（PreparedStatement + 批处理）性能更优。
 # English Version
 
 ## 0. Introduction

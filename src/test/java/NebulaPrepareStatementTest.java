@@ -21,7 +21,7 @@ public class NebulaPrepareStatementTest {
 
     @BeforeAll
     public void getDriver() throws SQLException {
-        driver = new NebulaDriver();
+        driver = new NebulaDriver(RunMeBeforeTest.IP + ":" + RunMeBeforeTest.PORT);
     }
 
     @AfterAll

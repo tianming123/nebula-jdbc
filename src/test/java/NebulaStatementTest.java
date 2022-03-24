@@ -24,7 +24,7 @@ public class NebulaStatementTest {
 
     @BeforeAll
     public void getConnectionAndStatement() throws SQLException, UnknownHostException {
-        driver = new NebulaDriver();
+        driver = new NebulaDriver(RunMeBeforeTest.IP + ":" + RunMeBeforeTest.PORT);
         connection = DriverManager.getConnection(RunMeBeforeTest.URL, RunMeBeforeTest.USERNAME, RunMeBeforeTest.PASSWORD);
         statement = connection.createStatement();
     }
